@@ -3,11 +3,13 @@ tm1_get_mdx_view <- function(tm1_connection, mdx="") {
   tm1_adminhost <- tm1_connection$adminhost
   tm1_httpport <- tm1_connection$port
   tm1_auth_key <- tm1_connection$key
+  tm1_ssl <- tm1_connection$ssl
 
   RowElementAsColumn = TRUE
 
   # url development
-  u1 <- "https://"
+  u1 <- ifelse(tm1_ssl==TRUE, "https://", "http://")
+  #u1 <- "https://"
   u2 <- tm1_adminhost
   u3 <- ":"
   u4 <- tm1_httpport

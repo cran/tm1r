@@ -4,7 +4,7 @@
 \usage{
 tm1_connection(adminhost = "", httpport = "",
 username = "", password = "",
-namespace="", ssl=FALSE)
+namespace="", ssl=TRUE)
 }
 \arguments{
 
@@ -13,7 +13,7 @@ namespace="", ssl=FALSE)
 \item{username}{username to connect to tm1 model}
 \item{password}{password of the username}
 \item{namespace}{ID of namespace should be specified if there is CAM security. Should be blank for native security}
-\item{ssl}{TRUE or FALSE}
+\item{ssl}{If UseSSL parameter is T in tm1s.cfg file, then TRUE. Else FALSE. Default is TRUE}
 
 }
 \description{
