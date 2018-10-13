@@ -25,13 +25,14 @@ else
     {
     elvec <- strsplit(rowel1, "|", TRUE)[[1]]
     ellen <- length(elvec)
-    rowdim1str <- paste("{[",rowdim1, "].[",elvec[1], "]}", sep="")
+    rowdim1str <- paste("{[",rowdim1, "].[",elvec[1], "]", sep="")
     i <- 2
     while(i <= ellen)
       {
-      rowdim1str <- paste(rowdim1str, ", {[", rowdim1, "].[",elvec[i], "]}", sep="")
+      rowdim1str <- paste(rowdim1str, ", [", rowdim1, "].[",elvec[i], "]", sep="")
       i <- i + 1
       }
+    rowdim1str <- paste(rowdim1str, "}", sep="")
     }
   else
     rowdim1str <- paste("{TM1SubsetToSet([",rowdim1, "].[",rowdim1, "], \"",rowsub1, "\")}",sep="")
@@ -44,13 +45,14 @@ else
     {
       elvec <- strsplit(rowel2, "|", TRUE)[[1]]
       ellen <- length(elvec)
-      rowdim2str <- paste("{[",rowdim2, "].[",elvec[1], "]}", sep="")
+      rowdim2str <- paste("{[",rowdim2, "].[",elvec[1], "]", sep="")
       i <- 2
       while(i <= ellen)
       {
-        rowdim2str <- paste(rowdim2str, ", {[", rowdim2, "].[",elvec[i], "]}", sep="")
+        rowdim2str <- paste(rowdim2str, ", [", rowdim2, "].[",elvec[i], "]", sep="")
         i <- i + 1
       }
+      rowdim2str <- paste(rowdim2str, "}", sep="")
     }
   else
     rowdim2str <- paste("{TM1SubsetToSet([",rowdim2, "].[",rowdim2, "], \"",rowsub2, "\")}",sep="")
@@ -64,13 +66,14 @@ else
     {
       elvec <- strsplit(rowel3, "|", TRUE)[[1]]
       ellen <- length(elvec)
-      rowdim3str <- paste("{[",rowdim3, "].[",elvec[1], "]}", sep="")
+      rowdim3str <- paste("{[",rowdim3, "].[",elvec[1], "]", sep="")
       i <- 2
       while(i <= ellen)
       {
-        rowdim3str <- paste(rowdim3str, ", {[", rowdim3, "].[",elvec[i], "]}", sep="")
+        rowdim3str <- paste(rowdim3str, ", [", rowdim3, "].[",elvec[i], "]", sep="")
         i <- i + 1
       }
+      rowdim3str <- paste(rowdim3str, "}", sep="")
     }
   else
     rowdim3str <- paste("{TM1SubsetToSet([",rowdim3, "].[",rowdim3, "], \"",rowsub3, "\")}",sep="")
@@ -85,13 +88,14 @@ else
     {
       elvec <- strsplit(colel1, "|", TRUE)[[1]]
       ellen <- length(elvec)
-      coldim1str <- paste("{[",coldim1, "].[",elvec[1], "]}", sep="")
+      coldim1str <- paste("{[",coldim1, "].[",elvec[1], "]", sep="")
       i <- 2
       while(i <= ellen)
       {
-        coldim1str <- paste(coldim1str, ", {[", coldim1, "].[",elvec[i], "]}", sep="")
+        coldim1str <- paste(coldim1str, ", [", coldim1, "].[",elvec[i], "]", sep="")
         i <- i + 1
       }
+      coldim1str <- paste(coldim1str, "}", sep="")
     }
   else
     coldim1str <- paste("{TM1SubsetToSet([",coldim1, "].[",coldim1, "], \"",colsub1, "\")}",sep="")
@@ -104,13 +108,14 @@ else
     {
       elvec <- strsplit(colel2, "|", TRUE)[[1]]
       ellen <- length(elvec)
-      coldim2str <- paste("{[",coldim2, "].[",elvec[1], "]}", sep="")
+      coldim2str <- paste("{[",coldim2, "].[",elvec[1], "]", sep="")
       i <- 2
       while(i <= ellen)
       {
-        coldim2str <- paste(coldim2str, ", {[", coldim2, "].[",elvec[i], "]}", sep="")
+        coldim2str <- paste(coldim2str, ", [", coldim2, "].[",elvec[i], "]", sep="")
         i <- i + 1
       }
+      coldim2str <- paste(coldim2str, "}", sep="")
     }
   else
     coldim2str <- paste("{TM1SubsetToSet([",coldim2, "].[",coldim2, "], \"",colsub1, "\")}",sep="")

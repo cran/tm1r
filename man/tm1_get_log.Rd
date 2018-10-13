@@ -14,8 +14,10 @@ tm1_get_log(tm1_connection, lognumber)
 Gets server logs from a tm1 instance
 }
 \examples{
-tm1_get_log(tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple"), 10)
+\dontrun{
+tm1_get_log(tm1_connection("localhost", "8881", "admin", "apple"), 10)
 
-con_obj <- tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple")
+con_obj <- tm1_connection("localhost", "8881", "admin", "apple")
 tm1_get_log(con_obj)
+}
 }

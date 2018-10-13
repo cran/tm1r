@@ -1,11 +1,9 @@
-tm1_get_native_view <- function(tm1_connection, cube="", view="") {
+tm1_get_native_view <- function(tm1_connection, cube="", view="", RowElementAsColumn = TRUE) {
 
   tm1_adminhost <- tm1_connection$adminhost
   tm1_httpport <- tm1_connection$port
   tm1_auth_key <- tm1_connection$key
   tm1_ssl <- tm1_connection$ssl
-
-  RowElementAsColumn = TRUE
 
   # added because some http does not know space
   cube <- gsub(" ", "%20", cube, fixed=TRUE)

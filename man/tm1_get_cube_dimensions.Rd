@@ -14,10 +14,12 @@ tm1_get_cube_dimensions(tm1_connection, cube)
 Gets dimensions of a cube
 }
 \examples{
+\dontrun{
 tm1_get_cube_dimensions(
-tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple"),
+tm1_connection("localhost", "8881", "admin", "apple"),
 "SalesCube")
 
-con_obj <- tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple")
+con_obj <- tm1_connection("localhost", "8881", "admin", "apple")
 tm1_get_cube_dimensions(con_obj, "SalesCube")
+}
 }

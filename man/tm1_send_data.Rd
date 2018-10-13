@@ -29,16 +29,18 @@ tm1_send_data(tm1_connection, value, cube,
 Send data to a cube, Supports up-to 10 dimension for now
 }
 \examples{
+\dontrun{
 tm1_send_data(
-  tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple"),
+  tm1_connection("localhost", "8881", "admin", "apple"),
   10,
   "SalesCube",
   "Actual", "Argentina", "S Series 1.8 L Sedan", "Units", "Jan")
 
-con_obj <- tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple")
+con_obj <- tm1_connection("localhost", "8881", "admin", "apple")
 tm1_send_data(con_obj,
   10,
   "SalesCube",
   "Actual", "Argentina", "S Series 1.8 L Sedan", "Units", "Jan",
   increment=TRUE)
+}
 }

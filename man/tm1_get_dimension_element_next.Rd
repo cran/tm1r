@@ -16,10 +16,12 @@ tm1_get_dimension_element_next(tm1_connection, dimension, element, pos, filter)
 Gets next element in a dimension
 }
 \examples{
+\dontrun{
 tm1_get_dimension_element_next(
-  tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple"),
+  tm1_connection("localhost", "8881", "admin", "apple"),
   "month", "Jun")
 
-con_obj <- tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple")
+con_obj <- tm1_connection("localhost", "8881", "admin", "apple")
 tm1_get_dimension_element_next(con_obj, "month", "Jun", pos = 2, filter="Numeric")
+}
 }

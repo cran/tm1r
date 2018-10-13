@@ -29,10 +29,12 @@ tm1_get_data(tm1_connection, cube,
 Gets data from a cube, Supports up-to 10 dimension for now
 }
 \examples{
+\dontrun{
 tm1_get_data(
-  tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple"),
+  tm1_connection("localhost", "8881", "admin", "apple"),
   "SalesCube", "Actual", "Argentina", "Total", "Sales", "Jan")
 
-con_obj <- tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple")
+con_obj <- tm1_connection("localhost", "8881", "admin", "apple")
 tm1_get_data(con_obj, "SalesCube", "Actual", "Argentina", "Total", "Sales", "Jan")
+}
 }

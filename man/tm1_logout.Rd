@@ -13,8 +13,10 @@ tm1_logout(tm1_connection)
 Logs out
 }
 \examples{
-tm1_logout(tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple"))
+\dontrun{
+tm1_logout(tm1_connection("localhost", "8881", "admin", "apple"))
 
-con_obj <- tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple")
+con_obj <- tm1_connection("localhost", "8881", "admin", "apple")
 tm1_logout(con_obj)
+}
 }

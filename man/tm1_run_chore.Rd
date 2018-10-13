@@ -14,8 +14,10 @@ tm1_run_chore(tm1_connection, chore)
 Runs a chore
 }
 \examples{
-tm1_run_chore(tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple"), "test")
+\dontrun{
+tm1_run_chore(tm1_connection("localhost", "8881", "admin", "apple"), "test")
 
-con_obj <- tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple")
+con_obj <- tm1_connection("localhost", "8881", "admin", "apple")
 tm1_run_chore(con_obj, "test")
+}
 }

@@ -20,5 +20,7 @@ namespace="", ssl=TRUE)
 Creates and returns a connection object to connect to TM1 via REST API.
 }
 \examples{
-tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple")
+\dontrun{
+tm1_connection("localhost", "8881", "admin", "apple")
+}
 }

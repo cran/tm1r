@@ -13,8 +13,10 @@ tm1_get_config(tm1_connection)
 Gets configuration of tm1 instance
 }
 \examples{
-tm1_get_config(tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple"))
+\dontrun{
+tm1_get_config(tm1_connection("localhost", "8881", "admin", "apple"))
 
-con_obj <- tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple")
+con_obj <- tm1_connection("localhost", "8881", "admin", "apple")
 tm1_get_config(con_obj)
+}
 }

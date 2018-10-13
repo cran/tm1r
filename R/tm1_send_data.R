@@ -97,8 +97,10 @@ tm1_send_data <- function(tm1_connection,
   # else get the error message to differentiate abortion and minor error
   if(httr::content(tm1_process_return, "text", encoding = "UTF-8") == "")
   {
-    tm1_process_message <- "DataSentSuccessfully"
-    print(tm1_process_message)
+    # Do nothing. Change on version 1.0.2
+    #tm1_process_message <- "DataSentSuccessfully"
+    #print(tm1_process_message)
+    #return(NA)
   }
   else
   {

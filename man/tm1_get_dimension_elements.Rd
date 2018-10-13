@@ -14,10 +14,12 @@ tm1_get_dimension_elements(tm1_connection, dimension)
 Gets elements of a dimension
 }
 \examples{
+\dontrun{
 tm1_get_dimension_elements(
-tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple"),
+tm1_connection("localhost", "8881", "admin", "apple"),
 "region")
 
-con_obj <- tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple")
+con_obj <- tm1_connection("localhost", "8881", "admin", "apple")
 tm1_get_dimension_elements(con_obj, "region")
+}
 }

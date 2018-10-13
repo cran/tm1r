@@ -24,8 +24,10 @@ tm1_run_process(tm1_connection,
 Runs a process
 }
 \examples{
-tm1_run_process(tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple"), "test")
+\dontrun{
+tm1_run_process(tm1_connection("localhost", "8881", "admin", "apple"), "test")
 
-con_obj <- tm1_connection("cubewise.sonorado.com", "8881", "admin", "apple")
+con_obj <- tm1_connection("localhost", "8881", "admin", "apple")
 tm1_run_process(con_obj, "test")
+}
 }
