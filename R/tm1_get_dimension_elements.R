@@ -20,7 +20,7 @@ tm1_get_dimension_elements <- function(tm1_connection, dimension) {
   u9 <- "')/Members?$select=Name&$expand=Element($select=Type)&$format=application/json;odata.metadata=none"
 
   # url development
-  url <- paste(u1, u2, u3, u4, u5, u6, u7, u8, u9, sep = "")
+  url <- paste0(u1, u2, u3, u4, u5, u6, u7, u8, u9)
   #url = "https://localhost:8881/api/v1/Dimensions('Account1')/Hierarchies('Account1')/Members?
   #$select=Name&$expand=Element($select=Type)&$format=application/json;odata.metadata=none"
 

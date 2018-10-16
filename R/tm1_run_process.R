@@ -20,7 +20,7 @@ tm1_run_process <- function(tm1_connection,
   u7 <- "')/tm1.Execute"
 
   # url development
-  url <- paste(u1, u2, u3, u4, u5, u6, u7, sep = "")
+  url <- paste0(u1, u2, u3, u4, u5, u6, u7)
   #url = "https://localhost:8881/api/v1/Processes('create_Y2Ksales_cube')/tm1.Execute"
 
   # sample parameter syntax
@@ -39,19 +39,19 @@ tm1_run_process <- function(tm1_connection,
 
   if(par1name != "")
   {
-    p2 <- paste("{\"Name\":\"", par1name, "\", \"Value\":\"", par1value, "\"}", sep = "")
+    p2 <- paste0("{\"Name\":\"", par1name, "\", \"Value\":\"", par1value, "\"}")
   }
   else  {    p2 <- ""  }
 
   if(par2name != "")
   {
-    p3 <- paste(",{\"Name\":\"", par2name, "\", \"Value\":\"", par2value, "\"}", sep = "")
+    p3 <- paste0(",{\"Name\":\"", par2name, "\", \"Value\":\"", par2value, "\"}")
   }
   else  {    p3 <- ""  }
 
   if(par3name != "")
   {
-    p4 <- paste(",{\"Name\":\"", par3name, "\", \"Value\":\"", par3value, "\"}", sep = "")
+    p4 <- paste0(",{\"Name\":\"", par3name, "\", \"Value\":\"", par3value, "\"}")
   }
   else  {    p4 <- ""  }
 
@@ -59,7 +59,7 @@ tm1_run_process <- function(tm1_connection,
 
 
 
-  parameters <- paste(p1, p2, p3, p4, p5, sep = "")
+  parameters <- paste0(p1, p2, p3, p4, p5)
 
   # post request
   tm1_process_return <-

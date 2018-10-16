@@ -1,4 +1,5 @@
-tm1_connection <- function(adminhost = "", httpport = "", username = "", password = "", namespace="", ssl=TRUE) {
+tm1_connection <- function(adminhost = "localhost", httpport = "",
+                           username = "admin", password = "apple", namespace="", ssl=TRUE) {
 
   tm1_adminhost <- adminhost
   tm1_httpport <- httpport

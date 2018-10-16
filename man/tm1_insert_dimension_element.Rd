@@ -3,7 +3,7 @@
 \title{TM1 Insert New Element to a Dimension}
 \usage{
 tm1_insert_dimension_element(tm1_connection,
-  dimension, element, parent)
+  dimension, element, parent, weight)
 }
 \arguments{
 
@@ -11,6 +11,7 @@ tm1_insert_dimension_element(tm1_connection,
 \item{dimension}{Name of dimension}
 \item{element}{Name of new element}
 \item{parent}{Name of parent of new element. Leave bland if there is no parent.}
+\item{weight}{Weight of the element as a component to the parent. Default is 1}
 
 }
 \description{

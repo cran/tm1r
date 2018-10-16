@@ -25,7 +25,7 @@ tm1_get_native_view <- function(tm1_connection, cube="", view="", RowElementAsCo
   u10 <- "?$expand=Axes($expand=Tuples($expand=Members($select=Name,UniqueName))),Cells($select=Value)"
 
 
-  url <- paste(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, sep = "")
+  url <- paste0(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10)
   #url = "https://localhost:8881/api/v1/Cubes('{{cubeName}}')/Views('{{viewName}}')/tm1.Execute
   #?$expand=Axes($expand=Tuples($expand=Members($select=Name))),Cells($select=Value)"
 

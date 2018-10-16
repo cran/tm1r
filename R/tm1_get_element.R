@@ -23,7 +23,7 @@ tm1_get_element <- function(tm1_connection, dimension, element) {
   u11 <- "')?$expand=Components"
 
   # url development
-  url <- paste(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, sep = "")
+  url <- paste0(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11)
   #url = "https://localhost:8881/api/v1/Dimensions('month')/Hierarchies('month')/Elements('Year')?$expand=Components"
 
   # post request

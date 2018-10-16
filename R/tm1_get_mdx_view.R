@@ -15,12 +15,12 @@ tm1_get_mdx_view <- function(tm1_connection, mdx="", RowElementAsColumn = TRUE) 
   u6 <- "?$expand=Axes($expand=Tuples($expand=Members($select=Name,UniqueName))),Cells($select=Value)"
 
 
-  url <- paste(u1, u2, u3, u4, u5, u6, sep = "")
+  url <- paste0(u1, u2, u3, u4, u5, u6)
   #url = "https://localhost:8881/api/v1/ExecuteMDX?
   #$expand=Axes($expand=Tuples($expand=Members($select=Name))),Cells($select=Value)"
 
   # change mdx to body text
-  bodytext <- paste("{	\"MDX\": \" ", mdx, "\"}", sep="")
+  bodytext <- paste0("{	\"MDX\": \" ", mdx, "\"}")
 
   # post request
   tm1_process_return <-

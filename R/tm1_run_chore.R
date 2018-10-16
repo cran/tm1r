@@ -18,7 +18,7 @@ tm1_run_chore <- function(tm1_connection, chore = "") {
   u7 <- "')/tm1.Execute"
 
   # url development
-  url <- paste(u1, u2, u3, u4, u5, u6, u7, sep = "")
+  url <- paste0(u1, u2, u3, u4, u5, u6, u7)
   #url = "https://localhost:8881/api/v1/Chores('create_Y2Ksales_cube')/tm1.Execute"
 
   # post request

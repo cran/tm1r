@@ -38,12 +38,12 @@ tm1_send_dataset <- function(tm1_connection,
   #u6 <- "?$expand=Axes($expand=Tuples($expand=Members($select=Name,UniqueName))),Cells($select=Value)"
   u6 <- ""
 
-  url <- paste(u1, u2, u3, u4, u5, u6, sep = "")
+  url <- paste0(u1, u2, u3, u4, u5, u6)
   #url = "https://localhost:8881/api/v1/ExecuteMDX?
   #$expand=Axes($expand=Tuples($expand=Members($select=Name))),Cells($select=Value)"
 
   # change mdx to body text
-  bodytext <- paste("{	\"MDX\": \" ", mdx, "\"}", sep="")
+  bodytext <- paste0("{	\"MDX\": \" ", mdx, "\"}")
 
   # post request
   tm1_process_return <-
@@ -73,7 +73,7 @@ tm1_send_dataset <- function(tm1_connection,
   u6 <- CellSetID
   u7 <- "')/Cells"
 
-  url <- paste(u1, u2, u3, u4, u5, u6, u7, sep = "")
+  url <- paste0(u1, u2, u3, u4, u5, u6, u7)
 
   # change body to values
   nrown <- nrow(valueset)
@@ -129,7 +129,7 @@ tm1_send_dataset <- function(tm1_connection,
   u6 <- CellSetID
   u7 <- "')"
 
-  url <- paste(u1, u2, u3, u4, u5, u6, u7, sep = "")
+  url <- paste0(u1, u2, u3, u4, u5, u6, u7)
 
   #Delete request
   tm1_process_return <-

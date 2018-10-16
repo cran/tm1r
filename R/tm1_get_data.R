@@ -16,7 +16,7 @@ tm1_get_data <- function(tm1_connection, cube,
   u5 <- "/api/v1/ExecuteMDX?$expand=Cells($select=Value)"
 
   # url development
-  url <- paste(u1, u2, u3, u4, u5, sep = "")
+  url <- paste0(u1, u2, u3, u4, u5)
   #url = "https://localhost:8881/api/v1/ExecuteMDX?$expand=Cells($select=Value)"
 
   # get dimensions of cube
@@ -27,25 +27,25 @@ tm1_get_data <- function(tm1_connection, cube,
 
   mapping_vector <- character(10)
 
-  mapping_vector[1] <- paste("[", dimensions[1],"].[", elements[1],"]", sep="")
-  mapping_vector[2] <- paste("[", dimensions[2],"].[", elements[2],"]", sep="")
+  mapping_vector[1] <- paste0("[", dimensions[1],"].[", elements[1],"]")
+  mapping_vector[2] <- paste0("[", dimensions[2],"].[", elements[2],"]")
 
   fromloop <- 3
   toloop <- dimnumber - 1
   if (dimnumber > 3)
     for (i in fromloop : toloop)
       {
-        mapping_vector[i] <- paste("[", dimensions[i],"].[", elements[i],"]", ",", sep="")
+        mapping_vector[i] <- paste0("[", dimensions[i],"].[", elements[i],"]", ",")
       }
 
   if (dimnumber > 2)
-    mapping_vector[dimnumber] <- paste("[", dimensions[dimnumber],"].[", elements[dimnumber],"]", sep="")
+    mapping_vector[dimnumber] <- paste0("[", dimensions[dimnumber],"].[", elements[dimnumber],"]")
 
   # sample body syntax
   if (dimnumber > 2)
   {
 
-    conditiontext <- paste(
+    conditiontext <- paste0(
       "WHERE (",
       mapping_vector[3],
       mapping_vector[4],
@@ -55,15 +55,14 @@ tm1_get_data <- function(tm1_connection, cube,
       mapping_vector[8],
       mapping_vector[9],
       mapping_vector[10],
-      ")",
-      sep=""
+      ")"
     )
   }
   else
     conditiontext <- ""
 
 
-  bodytext <- paste(
+  bodytext <- paste0(
     " {	\"MDX\": \"SELECT {",
     mapping_vector[1],
     "} ON COLUMNS, {",
@@ -72,8 +71,7 @@ tm1_get_data <- function(tm1_connection, cube,
     cube,
     "]  ",
     conditiontext,
-    "\"} ",
-    sep="")
+    "\"} ")
 
   # post request
   tm1_process_return <-

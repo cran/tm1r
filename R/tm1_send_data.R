@@ -34,7 +34,7 @@ tm1_send_data <- function(tm1_connection,
   u7 <- "')/tm1.Update"
 
   # url development
-  url <- paste(u1, u2, u3, u4, u5, u6, u7, sep = "")
+  url <- paste0(u1, u2, u3, u4, u5, u6, u7)
   #url = "https://localhost:8881/api/v1/Cubes('{{cubeName}}')/tm1.Update"
 
   # get dimensions of cube
@@ -47,28 +47,26 @@ tm1_send_data <- function(tm1_connection,
 
   for (i in 1 : dimnumber-1)
   {
-    mapping_vector[i] <- paste(
+    mapping_vector[i] <- paste0(
                                "\"Dimensions('",
                                dimensions[i],
                                "')/Hierarchies('",
                                dimensions[i],
                                "')/Elements('",
                                elements[i],
-                               "')\",",
-                               sep="")
+                               "')\",")
   }
-  mapping_vector[dimnumber] <- paste(
+  mapping_vector[dimnumber] <- paste0(
     "\"Dimensions('",
     dimensions[dimnumber],
     "')/Hierarchies('",
     dimensions[dimnumber],
     "')/Elements('",
     elements[dimnumber],
-    "')\"",
-    sep="")
+    "')\"")
 
   # sample body syntax
-  bodytext <- paste(
+  bodytext <- paste0(
     "{
 	\"Cells\":[
   {\"Tuple@odata.bind\": [",
@@ -83,7 +81,7 @@ tm1_send_data <- function(tm1_connection,
     mapping_vector[9],
     mapping_vector[10],
 
-  "  ]}],  \"Value\":\"", value, "\"  }", sep="")
+  "  ]}],  \"Value\":\"", value, "\"  }")
 
   # post request
   tm1_process_return <-

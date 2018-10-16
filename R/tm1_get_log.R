@@ -15,7 +15,7 @@ tm1_get_log <- function(tm1_connection, lognumber=5) {
   u7 <- "&$select=Level,TimeStamp,Message"
 
   # url development
-  url <- paste(u1, u2, u3, u4, u5, u6, u7, sep = "")
+  url <- paste0(u1, u2, u3, u4, u5, u6, u7)
   #url = "https://localhost:8881/api/v1/MessageLogEntries?$orderby=ID desc&$top=5&$select=Level,TimeStamp,Message"
 
 

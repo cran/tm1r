@@ -13,7 +13,7 @@ tm1_logout <- function(tm1_connection) {
   u5 <- "/api/logout"
 
   # url development
-  url <- paste(u1, u2, u3, u4, u5, sep = "")
+  url <- paste0(u1, u2, u3, u4, u5)
   #url = "https://localhost:8881/api/v1/Configuration"
 
   # post request
