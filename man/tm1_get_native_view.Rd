@@ -2,7 +2,7 @@
 \alias{tm1_get_native_view}
 \title{TM1 Get Data from a Native View}
 \usage{
-tm1_get_native_view(tm1_connection, cube, view, RowElementAsColumn)
+tm1_get_native_view(tm1_connection, cube, view, RowElementAsColumn= FALSE)
 }
 \arguments{
 

@@ -20,76 +20,28 @@ tm1_get_data <- function(tm1_connection, cube,
   #url = "https://localhost:8881/api/v1/ExecuteMDX?$expand=Cells($select=Value)"
 
   # get dimensions of cube
-  dimensions <- tm1_get_cube_dimensions(tm1_connection, cube)
-  dimnumber <- length(dimensions)
+  dimlist <- tm1_get_cube_dimensions(tm1_connection, cube)
+  dimnumber <- length(dimlist)
 
   elements <- c(element1, element2, element3, element4, element5, element6, element7, element8, element9, element10)
+  dimensions <- character(10)
+  dimensions <- replace(dimensions, 1:dimnumber, dimlist)
 
-  mapping_vector <- character(10)
+  #getmdx
+  mdx <- tm1_create_mdx(cube, rowdim1 = dimensions[1], rowel1 = elements[1],
+                                coldim1 = dimensions[2], colel1 = elements[2],
+                                titledim1 = dimensions[3], titleel1 = elements[3],
+                                titledim2 = dimensions[4], titleel2 = elements[4],
+                                titledim3 = dimensions[5], titleel3 = elements[5],
+                                titledim4 = dimensions[6], titleel4 = elements[6],
+                                titledim5 = dimensions[7], titleel5 = elements[7],
+                                titledim6 = dimensions[8], titleel6 = elements[8],
+                                titledim7 = dimensions[9], titleel7 = elements[9],
+                                titledim8 = dimensions[10], titleel8 = elements[10])
 
-  mapping_vector[1] <- paste0("[", dimensions[1],"].[", elements[1],"]")
-  mapping_vector[2] <- paste0("[", dimensions[2],"].[", elements[2],"]")
+  resultview <- tm1_get_mdx_view(tm1_connection, mdx, RowElementAsColumn = FALSE)
 
-  fromloop <- 3
-  toloop <- dimnumber - 1
-  if (dimnumber > 3)
-    for (i in fromloop : toloop)
-      {
-        mapping_vector[i] <- paste0("[", dimensions[i],"].[", elements[i],"]", ",")
-      }
-
-  if (dimnumber > 2)
-    mapping_vector[dimnumber] <- paste0("[", dimensions[dimnumber],"].[", elements[dimnumber],"]")
-
-  # sample body syntax
-  if (dimnumber > 2)
-  {
-
-    conditiontext <- paste0(
-      "WHERE (",
-      mapping_vector[3],
-      mapping_vector[4],
-      mapping_vector[5],
-      mapping_vector[6],
-      mapping_vector[7],
-      mapping_vector[8],
-      mapping_vector[9],
-      mapping_vector[10],
-      ")"
-    )
-  }
-  else
-    conditiontext <- ""
-
-
-  bodytext <- paste0(
-    " {	\"MDX\": \"SELECT {",
-    mapping_vector[1],
-    "} ON COLUMNS, {",
-    mapping_vector[2],
-    "} ON ROWS FROM [",
-    cube,
-    "]  ",
-    conditiontext,
-    "\"} ")
-
-  # post request
-  tm1_process_return <-
-    httr::POST(url,
-               httr::add_headers("Authorization" = tm1_auth_key),
-               httr::add_headers("Content-Type" = "application/json"),
-         body = bodytext)
-
-  # check return if error
-  if (is.null(jsonlite::fromJSON(httr::content(tm1_process_return, "text"))$error$message) == FALSE) {
-    message(jsonlite::fromJSON(httr::content(tm1_process_return, "text"))$error$message)
-    stop()
-  }
-
-  # return manipulation
-  tm1_process_message <- jsonlite::fromJSON(httr::content(tm1_process_return, "text"))$Cells$Value
-
-  return(tm1_process_message)
+  return(resultview[1,1])
 
 
 }

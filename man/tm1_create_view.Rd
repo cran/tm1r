@@ -1,18 +1,20 @@
-\name{tm1_get_mdx_view}
-\alias{tm1_get_mdx_view}
-\title{TM1 Get Data from an MDX View}
+\name{tm1_create_view}
+\alias{tm1_create_view}
+\title{TM1 Create View from mdx}
 \usage{
-tm1_get_mdx_view(tm1_connection, mdx, RowElementAsColumn = FALSE)
+tm1_create_view(tm1_connection, cube, view, mdx)
 }
 \arguments{
 
 \item{tm1_connection}{tm1 connection object returned by the function tm1_connection}
+\item{cube}{Name of cube}
+\item{view}{Name of view to be created}
 \item{mdx}{MDX of view as a string}
-\item{RowElementAsColumn}{if False, row elements will be attached to rownames of data frame}
+
 
 }
 \description{
-Gets mdx view data
+Creates cube view with mdx
 }
 \examples{
 \dontrun{
@@ -30,11 +32,11 @@ mdx <- "SELECT
    [region].[region].[Argentina],
    [model].[model].[S Series 1.8 L Sedan]
   )"
-tm1_get_mdx_view(
+tm1_create_view(
   tm1_connection("localhost", "8881", "admin", "apple"),
-  mdx, RowElementAsColumn=FALSE)
+  "SalesCube", "test", mdx)
 
 con_obj <- tm1_connection("localhost", "8881", "admin", "apple")
-tm1_get_mdx_view(con_obj,mdx)
+tm1_create_view(con_obj, "SalesCube", "test", mdx)
 }
 }

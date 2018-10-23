@@ -1,8 +1,8 @@
-\name{tm1_mdx_generate}
-\alias{tm1_mdx_generate}
+\name{tm1_create_mdx}
+\alias{tm1_create_mdx}
 \title{TM1 Generate mdx for a cube view}
 \usage{
-tm1_mdx_generate(cube,
+tm1_create_mdx(cube,
                              rowdim1, rowsub1, rowel1,
                              rowdim2, rowsub2, rowel2,
                              rowdim3, rowsub3, rowel3,
@@ -71,7 +71,7 @@ Returns mdx as a string to use in the function tm1_get_mdx_view
 \examples{
 \dontrun{
 
-tm1_mdx_generate( "SalesCube", rowdim1="account1", rowel1 = "Sales", coldim1="month", colel1="Jan",
+tm1_create_mdx( "SalesCube", rowdim1="account1", rowel1 = "Sales", coldim1="month", colel1="Jan",
 titledim1 = "actvsbud", titleel1 = "Actual",
 titledim2 = "region", titleel2 = "Argentina",
 titledim3 = "model", titleel3 = "S Series 1.8 L Sedan",

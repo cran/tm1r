@@ -13,7 +13,7 @@ tm1_send_dataset <- function(tm1_connection,
 
   ###########################################
   ###########mdx generate
-  mdx <- tm1_mdx_generate(cube,
+  mdx <- tm1_create_mdx(cube,
                    rowdim1 = rowdim, rowel1 = paste(rownames(valueset), collapse = '|'),
                    coldim1 = coldim, colel1 = paste(colnames(valueset), collapse = '|'),
                    titledim1 = titledim1, titleel1 = titleel1,

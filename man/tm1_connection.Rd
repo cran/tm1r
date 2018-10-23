@@ -2,8 +2,8 @@
 \alias{tm1_connection}
 \title{TM1 Connection}
 \usage{
-tm1_connection(adminhost = "", httpport = "",
-username = "", password = "",
+tm1_connection(adminhost = "localhost", httpport = "",
+username = "admin", password = "apple",
 namespace="", ssl=TRUE)
 }
 \arguments{

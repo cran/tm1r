@@ -1,4 +1,4 @@
-tm1_get_element <- function(tm1_connection, dimension, element) {
+tm1_get_element <- function(tm1_connection, dimension, element = "", index = 0) {
 
   tm1_adminhost <- tm1_connection$adminhost
   tm1_httpport <- tm1_connection$port
@@ -18,12 +18,32 @@ tm1_get_element <- function(tm1_connection, dimension, element) {
   u6 <- dimension
   u7 <- "')/Hierarchies('"
   u8 <- dimension
-  u9 <- "')/Elements('"
-  u10 <- element
-  u11 <- "')?$expand=Components"
+  u9 <- "')/Elements"
+
+  if (element != "") {
+    u10 <- "('"
+    u11 <- element
+    u12 <- "')?$expand=Components"
+  }
+  else
+  {
+    if (index > 0)
+  {
+    u10 <- "?$filter=Index%20eq%20"
+    u11 <- index
+    u12 <- ""
+    }
+  else
+  {
+    #error
+    message("element or index parameter should be specified AND index should be greater than 0")
+    stop()
+
+  }
+  }
 
   # url development
-  url <- paste0(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11)
+  url <- paste0(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12)
   #url = "https://localhost:8881/api/v1/Dimensions('month')/Hierarchies('month')/Elements('Year')?$expand=Components"
 
   # post request
@@ -40,7 +60,13 @@ tm1_get_element <- function(tm1_connection, dimension, element) {
   }
   else
   {
-    content <- jsonlite::fromJSON(httr::content(tm1_process_return, "text"))
+    if (element != "") {
+      content <- jsonlite::fromJSON(httr::content(tm1_process_return, "text"))
+    }
+    else
+    {
+      content <- jsonlite::fromJSON(httr::content(tm1_process_return, "text"))$value
+    }
 
     tm1_element_object$name <- content$Name
     tm1_element_object$uniquename <- content$UniqueName

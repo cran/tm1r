@@ -1,9 +1,9 @@
-\name{tm1_insert_dimension_element}
-\alias{tm1_insert_dimension_element}
-\title{TM1 Insert New Element to a Dimension}
+\name{tm1_create_dimension_element}
+\alias{tm1_create_dimension_element}
+\title{TM1 Create New Element to a Dimension}
 \usage{
-tm1_insert_dimension_element(tm1_connection,
-  dimension, element, parent, weight)
+tm1_create_dimension_element(tm1_connection,
+  dimension, element, parent="", weight=1)
 }
 \arguments{
 
@@ -19,10 +19,10 @@ Inserts a new element to the dimension
 }
 \examples{
 \dontrun{
-tm1_insert_dimension_element(tm1_connection("localhost", "8881", "admin", "apple"),
+tm1_create_dimension_element(tm1_connection("localhost", "8881", "admin", "apple"),
 "month", "test", "Year")
 
 con_obj <- tm1_connection("localhost", "8881", "admin", "apple")
-tm1_insert_dimension_element(con_obj, "month", "test", "Year")
+tm1_create_dimension_element(con_obj, "month", "test", "Year")
 }
 }
