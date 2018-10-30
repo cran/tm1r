@@ -40,12 +40,22 @@ Send data to a cube, Supports up-to 10 dimension for now
 }
 \examples{
 \dontrun{
-tm1_send_dataset(
-  tm1_connection("localhost", "8881", "admin", "apple"),
-  valueset = view, cube = "TS", rowdim = "Period", coldim = "TS m")
 
-con_obj <- tm1_connection("localhost", "8881", "admin", "apple")
-tm1_send_dataset(con_obj,
-  valueset = view, cube = "TS", rowdim = "Period", coldim = "TS m")
+sdata <- tm1_connection("localhost", "8881", "admin", "apple")
+
+#valueset
+#    Argentina Brazil
+#Jan         1      2
+#Feb         3      4
+
+tm1_send_dataset(
+  sdata,
+  valueset = valueset, cube = "SalesCube",
+  rowdim = "month", coldim = "region",
+  titledim1 = "actvsbud", titleel1 = "Actual",
+  titledim2 = "model", titleel2 = "L Series 1.6 L Convertible",
+  titledim3 = "account1", titleel3 = "Units")
+
+
 }
 }

@@ -39,7 +39,7 @@ tm1_get_mdx_view <- function(tm1_connection, mdx="", RowElementAsColumn = FALSE)
 
   # get number of dimension elements of view
   ncols <- tm1_return$Axes$Cardinality[1]
-  nrows <- tm1_return$Axes$Cardinality[2]
+  nrows <- ifelse(grepl("ON ROWS", mdx) == TRUE, tm1_return$Axes$Cardinality[2], 1)
 
   # get data from return
   tm1_data <- tm1_return$Cells$Value
@@ -64,7 +64,7 @@ tm1_get_mdx_view <- function(tm1_connection, mdx="", RowElementAsColumn = FALSE)
 
 
   # if there is no rown elements, do not run assign
-  if(is.null(tm1_return$Axes$Tuples[[2]]$Members[[1]]$Name) == FALSE){
+  if(is.null(tm1_return$Axes$Tuples[[2]]$Members[[1]]$Name) == FALSE && grepl("ON ROWS", mdx) == TRUE){
     for (j in 1:nrows)
     {
       rowname <- tm1_return$Axes$Tuples[[2]]$Members[[j]]$Name

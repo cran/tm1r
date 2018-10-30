@@ -1,11 +1,13 @@
-6028d07695f202053bedfae0549ad98b *DESCRIPTION
+b5519f0a362c8f0d10a0930ea7970476 *DESCRIPTION
 df390c53434517b304ac5db487184641 *NAMESPACE
 fbe41f7f720c8196f94887dad96efe44 *R/tm1_api_request.R
 9704da17c13ed3c2167a667de07ad67d *R/tm1_connection.R
-51229325967bcc4d07f59f5377a866a4 *R/tm1_create_dimension_element.R
+7af7e147b81ef6b14d6fe9c0889b25e6 *R/tm1_create_element.R
 cd686a4006f57797a0b94493acb56762 *R/tm1_create_mdx.R
+da1fde5f37cd7545272a43cc6ed4ff4a *R/tm1_create_subset.R
 d5d635bef7cb987c6a3a1b9f973555dc *R/tm1_create_view.R
-90a9b63fc27372445f7738e4844db687 *R/tm1_delete_dimension_element.R
+ae6650357524c77d242f3ddbaf63dd08 *R/tm1_delete_element.R
+c82d9599c102d3296ecb99a26142d03e *R/tm1_delete_subset.R
 63dac6b31fec8e0fd14856162e22df70 *R/tm1_delete_view.R
 6319717d89cf2747e620cab5417b8ffc *R/tm1_get_config.R
 b138c063c44b6e789fc505266193a1ba *R/tm1_get_cube_dimensions.R
@@ -17,7 +19,7 @@ eca0f9e3bea9aab18ffababc92b661aa *R/tm1_get_dimension_elements.R
 e4dc3c42dc4c9b66c89f2994596c7164 *R/tm1_get_element.R
 9ab7d7d9d60708d0323e659b4a97ba8a *R/tm1_get_instances.R
 df07ff113873dfe2c276810ab3d9f284 *R/tm1_get_log.R
-1e17c6b7e0f778fc321ab41de23199ca *R/tm1_get_mdx_view.R
+de139eab56f0fcb2303e9f70aab0da63 *R/tm1_get_mdx_view.R
 9e3af145c8e7228cbbe372f9d192abc3 *R/tm1_get_native_view.R
 990e7a56f5152560c89d67aba3a92f11 *R/tm1_logout.R
 771bfbcc1d9cd79349599c85a414e6b7 *R/tm1_run_chore.R
@@ -26,10 +28,12 @@ df07ff113873dfe2c276810ab3d9f284 *R/tm1_get_log.R
 198cb61c51531cd4c3e456f46e13d9b1 *R/tm1_send_dataset.R
 a028ffa3340b2954473c889c5a77db14 *man/tm1_api_request.Rd
 9cf5e38b02fd1bd767af3b1015c6bc9e *man/tm1_connection.Rd
-76a8560a9fcb6fafd0fdb3c84620d1b6 *man/tm1_create_dimension_element.Rd
+e347bd883246286edcd25cb331db6c78 *man/tm1_create_element.Rd
 235abbedf55752e13a9502077ec2457b *man/tm1_create_mdx.Rd
+1f4fcfabfc65b954ff0f1838468c7e10 *man/tm1_create_subset.Rd
 c99755597b74244dfce6d5e4befaa108 *man/tm1_create_view.Rd
-5e16dc3d656ae10429870e7e3fef1886 *man/tm1_delete_dimension_element.Rd
+d58670037617f32670979f52007b5310 *man/tm1_delete_element.Rd
+47a177a8eb1f612162a13fc7025f268e *man/tm1_delete_subset.Rd
 28fbe4555565afb8e650351ff689611b *man/tm1_delete_view.Rd
 db74273735f15077e909f4f90aae9c4b *man/tm1_get_config.Rd
 d9067e0f658b9f7fe95b710a79c97411 *man/tm1_get_cube_dimensions.Rd
@@ -47,4 +51,4 @@ ba4f350df13cda85de521df9083c843f *man/tm1_get_instances.Rd
 a8c3a1747d58f8e0660586ddffae77a2 *man/tm1_run_chore.Rd
 2f61e8e1b5a7a5d5275007fcdb15f0cd *man/tm1_run_process.Rd
 4ce6b88b1b4846552e0534c6d4accc5e *man/tm1_send_data.Rd
-d6598b8e0a9ad2a7a9f5dc7cdf65389e *man/tm1_send_dataset.Rd
+093512bf92b09bf0df3f505a29c286ea *man/tm1_send_dataset.Rd

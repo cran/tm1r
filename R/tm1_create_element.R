@@ -1,4 +1,4 @@
-tm1_create_dimension_element <- function(tm1_connection,
+tm1_create_element <- function(tm1_connection,
                             dimension,
                             element,
                             parent = "",

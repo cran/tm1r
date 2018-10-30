@@ -1,8 +1,8 @@
-\name{tm1_delete_dimension_element}
-\alias{tm1_delete_dimension_element}
+\name{tm1_delete_element}
+\alias{tm1_delete_element}
 \title{TM1 Delete Element or Component}
 \usage{
-tm1_delete_dimension_element(tm1_connection,
+tm1_delete_element(tm1_connection,
   dimension, element, parent="")
 }
 \arguments{
@@ -19,10 +19,10 @@ Deletes element or component from dimensions
 }
 \examples{
 \dontrun{
-tm1_delete_dimension_element(tm1_connection("localhost", "8881", "admin", "apple"),
+tm1_delete_element(tm1_connection("localhost", "8881", "admin", "apple"),
 "month", "test", "Year")
 
 con_obj <- tm1_connection("localhost", "8881", "admin", "apple")
-tm1_delete_dimension_element(con_obj, "month", "test")
+tm1_delete_element(con_obj, "month", "test")
 }
 }

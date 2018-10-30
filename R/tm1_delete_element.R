@@ -1,4 +1,4 @@
-tm1_delete_dimension_element <- function(tm1_connection,
+tm1_delete_element <- function(tm1_connection,
                             dimension,
                             element,
                             parent = "") {
