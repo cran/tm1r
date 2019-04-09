@@ -37,11 +37,20 @@ tm1_get_data <- function(tm1_connection, cube,
                                 titledim5 = dimensions[7], titleel5 = elements[7],
                                 titledim6 = dimensions[8], titleel6 = elements[8],
                                 titledim7 = dimensions[9], titleel7 = elements[9],
-                                titledim8 = dimensions[10], titleel8 = elements[10])
+                                titledim8 = dimensions[10], titleel8 = elements[10],
+                                rowsuppress = FALSE, colsuppress = FALSE)
 
   resultview <- tm1_get_mdx_view(tm1_connection, mdx, RowElementAsColumn = FALSE)
 
-  return(resultview[1,1])
+  if (class(resultview[1,1]) == "factor") {
+    return(as.character(resultview[1,1]))
+  }
+  else
+  {
+    return(resultview[1,1])
+  }
+
+
 
 
 }
