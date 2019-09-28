@@ -1,4 +1,4 @@
-42e1de9932170989e17fd03744ad5b49 *DESCRIPTION
+062b623cb0c545dccd6d1f0f4030c86d *DESCRIPTION
 df390c53434517b304ac5db487184641 *NAMESPACE
 fbe41f7f720c8196f94887dad96efe44 *R/tm1_api_request.R
 9704da17c13ed3c2167a667de07ad67d *R/tm1_connection.R
@@ -22,6 +22,7 @@ e4dc3c42dc4c9b66c89f2994596c7164 *R/tm1_get_element.R
 df07ff113873dfe2c276810ab3d9f284 *R/tm1_get_log.R
 de139eab56f0fcb2303e9f70aab0da63 *R/tm1_get_mdx_view.R
 9e3af145c8e7228cbbe372f9d192abc3 *R/tm1_get_native_view.R
+129ffb7f7e4195a1e8ef945fdadc0d3d *R/tm1_get_subset_elements.R
 990e7a56f5152560c89d67aba3a92f11 *R/tm1_logout.R
 771bfbcc1d9cd79349599c85a414e6b7 *R/tm1_run_chore.R
 8125abca679a7aa24ba6ec5385ee3756 *R/tm1_run_process.R
@@ -45,11 +46,12 @@ d9067e0f658b9f7fe95b710a79c97411 *man/tm1_get_cube_dimensions.Rd
 d44ff644396bde07052487a7bfdbb2df *man/tm1_get_dimension_elements.Rd
 2febcacc17eb34f828788989788c820b *man/tm1_get_dimension_subsets.Rd
 2cfca2848dafe5221ab2b804f3fb1cc7 *man/tm1_get_dimensions.Rd
-f602b0580b250640d704af3c5522904a *man/tm1_get_element.Rd
+0a9a30195e4dabd713a86bda63841bf5 *man/tm1_get_element.Rd
 ba4f350df13cda85de521df9083c843f *man/tm1_get_instances.Rd
 155ac202e59e57bbd41610608229534c *man/tm1_get_log.Rd
 11dcd0072a3ac7e19fbe335662e6fb34 *man/tm1_get_mdx_view.Rd
 070f7b9091fd7db6aa7a0b29704bd97f *man/tm1_get_native_view.Rd
+f3a5f1b92d121c530f958075795de4cb *man/tm1_get_subset_elements.Rd
 7a19209d972171dff29f31d323a8275a *man/tm1_logout.Rd
 a8c3a1747d58f8e0660586ddffae77a2 *man/tm1_run_chore.Rd
 2f61e8e1b5a7a5d5275007fcdb15f0cd *man/tm1_run_process.Rd

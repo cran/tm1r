@@ -23,6 +23,6 @@ tm1_connection("localhost", "8881", "admin", "apple"),
 "month", "Year")
 
 con_obj <- tm1_connection("localhost", "8881", "admin", "apple")
-tm1_get_dimension_elements(con_obj, "month", "", 7)
+tm1_get_element(con_obj, "month", "", 7)
 }
 }
