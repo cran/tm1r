@@ -10,6 +10,7 @@ tm1_send_dataset <- function(tm1_connection,
   tm1_httpport <- tm1_connection$port
   tm1_auth_key <- tm1_connection$key
   tm1_ssl <- tm1_connection$ssl
+  tm1_base_url <- tm1_connection$base_url
 
   ###########################################
   ###########mdx generate
@@ -34,11 +35,12 @@ tm1_send_dataset <- function(tm1_connection,
   u2 <- tm1_adminhost
   u3 <- ":"
   u4 <- tm1_httpport
-  u5 <- "/api/v1/ExecuteMDX"
+  u5 <- "/"
+  u6 <- "api/v1/ExecuteMDX"
   #u6 <- "?$expand=Axes($expand=Tuples($expand=Members($select=Name,UniqueName))),Cells($select=Value)"
-  u6 <- ""
+  u7 <- ""
 
-  url <- paste0(u1, u2, u3, u4, u5, u6)
+  url <- ifelse(tm1_base_url=="", paste0(u1, u2, u3, u4, u5, u6, u7), paste0(tm1_base_url, u6, u7))
   #url = "https://localhost:8881/api/v1/ExecuteMDX?
   #$expand=Axes($expand=Tuples($expand=Members($select=Name))),Cells($select=Value)"
 
@@ -69,11 +71,12 @@ tm1_send_dataset <- function(tm1_connection,
   u2 <- tm1_adminhost
   u3 <- ":"
   u4 <- tm1_httpport
-  u5 <- "/api/v1/Cellsets('"
-  u6 <- CellSetID
-  u7 <- "')/Cells"
+  u5 <- "/"
+  u6 <- "api/v1/Cellsets('"
+  u7 <- CellSetID
+  u8 <- "')/Cells"
 
-  url <- paste0(u1, u2, u3, u4, u5, u6, u7)
+  url <- ifelse(tm1_base_url=="", paste0(u1, u2, u3, u4, u5, u6, u7, u8), paste0(tm1_base_url, u6, u7, u8))
 
   # change body to values
   nrown <- nrow(valueset)
@@ -125,11 +128,12 @@ tm1_send_dataset <- function(tm1_connection,
   u2 <- tm1_adminhost
   u3 <- ":"
   u4 <- tm1_httpport
-  u5 <- "/api/v1/Cellsets('"
-  u6 <- CellSetID
-  u7 <- "')"
+  u5 <- "/"
+  u6 <- "api/v1/Cellsets('"
+  u7 <- CellSetID
+  u8 <- "')"
 
-  url <- paste0(u1, u2, u3, u4, u5, u6, u7)
+  url <- ifelse(tm1_base_url=="", paste0(u1, u2, u3, u4, u5, u6, u7, u8), paste0(tm1_base_url, u6, u7, u8))
 
   #Delete request
   tm1_process_return <-

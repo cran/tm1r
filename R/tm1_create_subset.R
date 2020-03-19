@@ -9,6 +9,7 @@ tm1_create_subset <- function(tm1_connection,
   tm1_httpport <- tm1_connection$port
   tm1_auth_key <- tm1_connection$key
   tm1_ssl <- tm1_connection$ssl
+  tm1_base_url <- tm1_connection$base_url
 
   # Check if subset exist
   subsetname <- subset
@@ -34,15 +35,16 @@ tm1_create_subset <- function(tm1_connection,
   u2 <- tm1_adminhost
   u3 <- ":"
   u4 <- tm1_httpport
-  u5 <- "/api/v1/Dimensions('"
-  u6 <- dimension
-  u7 <- "')/Hierarchies('"
-  u8 <- dimension
-  u9 <- "')/Subsets"
+  u5 <- "/"
+  u6 <- "api/v1/Dimensions('"
+  u7 <- dimension
+  u8 <- "')/Hierarchies('"
+  u9 <- dimension
+  u10 <- "')/Subsets"
 
 
   # url development
-  url <- paste0(u1, u2, u3, u4, u5, u6, u7, u8, u9)
+  url <- ifelse(tm1_base_url=="", paste0(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10), paste0(tm1_base_url, u6, u7, u8, u9, u10))
   #url = "https://localhost:8881/api/v1/Dimensions('month')/Hierarchies('month')/Subsets"
 
   if (mdx != "") {
@@ -107,17 +109,18 @@ tm1_create_subset <- function(tm1_connection,
     u2 <- tm1_adminhost
     u3 <- ":"
     u4 <- tm1_httpport
-    u5 <- "/api/v1/Dimensions('"
-    u6 <- dimension
-    u7 <- "')/Hierarchies('"
-    u8 <- dimension
-    u9 <- "')/Subsets('"
-    u10 <- subset
-    u11 <- "')"
+    u5 <- "/"
+    u6 <- "api/v1/Dimensions('"
+    u7 <- dimension
+    u8 <- "')/Hierarchies('"
+    u9 <- dimension
+    u10 <- "')/Subsets('"
+    u11 <- subset
+    u12 <- "')"
 
 
     # url development
-    url <- paste0(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11)
+    url <- ifelse(tm1_base_url=="", paste0(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12), paste0(tm1_base_url, u6, u7, u8, u9, u10, u11, u12))
     #url = "https://localhost:8881/api/v1/Dimensions('month')/Hierarchies('month')/Subsets('test')"
 
     elementbody <- "{ \"Expression\":\" \"}"

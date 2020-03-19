@@ -4,6 +4,7 @@ tm1_get_element <- function(tm1_connection, dimension, element = "", index = 0) 
   tm1_httpport <- tm1_connection$port
   tm1_auth_key <- tm1_connection$key
   tm1_ssl <- tm1_connection$ssl
+  tm1_base_url <- tm1_connection$base_url
 
   # added because some http does not know space
   dimension <- gsub(" ", "%20", dimension, fixed=TRUE)
@@ -14,24 +15,25 @@ tm1_get_element <- function(tm1_connection, dimension, element = "", index = 0) 
   u2 <- tm1_adminhost
   u3 <- ":"
   u4 <- tm1_httpport
-  u5 <- "/api/v1/Dimensions('"
-  u6 <- dimension
-  u7 <- "')/Hierarchies('"
-  u8 <- dimension
-  u9 <- "')/Elements"
+  u5 <- "/"
+  u6 <- "api/v1/Dimensions('"
+  u7 <- dimension
+  u8 <- "')/Hierarchies('"
+  u9 <- dimension
+  u10 <- "')/Elements"
 
   if (element != "") {
-    u10 <- "('"
-    u11 <- element
-    u12 <- "')?$expand=Components"
+    u11 <- "('"
+    u12 <- element
+    u13 <- "')?$expand=Components"
   }
   else
   {
     if (index > 0)
   {
-    u10 <- "?$filter=Index%20eq%20"
-    u11 <- index
-    u12 <- ""
+    u11 <- "?$filter=Index%20eq%20"
+    u12 <- index
+    u13 <- ""
     }
   else
   {
@@ -43,7 +45,7 @@ tm1_get_element <- function(tm1_connection, dimension, element = "", index = 0) 
   }
 
   # url development
-  url <- paste0(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12)
+  url <- ifelse(tm1_base_url=="", paste0(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13), paste0(tm1_base_url, u6, u7, u8, u9, u10, u11, u12, u13))
   #url = "https://localhost:8881/api/v1/Dimensions('month')/Hierarchies('month')/Elements('Year')?$expand=Components"
 
   # post request

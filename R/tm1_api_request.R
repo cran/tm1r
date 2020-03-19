@@ -6,6 +6,8 @@ tm1_api_request <- function(tm1_connection,
   tm1_auth_key <- tm1_connection$key
   tm1_ssl <- tm1_connection$ssl
 
+  url <- gsub(" ", "%20", url, fixed=TRUE)
+
   #type <- paste0("httr::", type)
 
   # request

@@ -6,6 +6,7 @@ tm1_run_process <- function(tm1_connection,
   tm1_httpport <- tm1_connection$port
   tm1_auth_key <- tm1_connection$key
   tm1_ssl <- tm1_connection$ssl
+  tm1_base_url <- tm1_connection$base_url
 
   # added because some http does not know space
   process <- gsub(" ", "%20", process, fixed=TRUE)
@@ -15,12 +16,13 @@ tm1_run_process <- function(tm1_connection,
   u2 <- tm1_adminhost
   u3 <- ":"
   u4 <- tm1_httpport
-  u5 <- "/api/v1/Processes('"
-  u6 <- process
-  u7 <- "')/tm1.Execute"
+  u5 <- "/"
+  u6 <- "api/v1/Processes('"
+  u7 <- process
+  u8 <- "')/tm1.Execute"
 
   # url development
-  url <- paste0(u1, u2, u3, u4, u5, u6, u7)
+  url <- ifelse(tm1_base_url=="", paste0(u1, u2, u3, u4, u5, u6, u7, u8), paste0(tm1_base_url, u6, u7, u8))
   #url = "https://localhost:8881/api/v1/Processes('create_Y2Ksales_cube')/tm1.Execute"
 
   # sample parameter syntax

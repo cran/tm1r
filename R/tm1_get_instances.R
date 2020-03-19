@@ -1,13 +1,17 @@
-tm1_get_instances <- function(adminhost = "localhost", port = "5898", ssl = TRUE) {
+tm1_get_instances <- function(adminhost = "localhost", port = "5898", ssl = TRUE, base_url = "") {
+
+  base_url <- gsub(" ", "%20", base_url, fixed=TRUE)
 
   u1 <- ifelse(ssl==TRUE, "https://", "http://")
   u2 <- adminhost
   u3 <- ":"
   u4 <- port
-  u5 <- "/api/v1/Servers"
+  u5 <- "/"
+  u6<- "api/v1/Servers"
 
   # url development
-  url <- paste0(u1, u2, u3, u4, u5)
+  url <- ifelse(base_url=="", paste0(u1, u2, u3, u4, u5, u6), paste0(base_url, u6))
+
   #url = "https://localhost:5898/api/v1/Servers"
 
   httr::set_config(httr::config(ssl_verifypeer = FALSE))

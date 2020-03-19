@@ -6,6 +6,7 @@ tm1_send_data <- function(tm1_connection,
   tm1_httpport <- tm1_connection$port
   tm1_auth_key <- tm1_connection$key
   tm1_ssl <- tm1_connection$ssl
+  tm1_base_url <- tm1_connection$base_url
 
   # if increment, change value
   if( increment == FALSE )
@@ -29,12 +30,13 @@ tm1_send_data <- function(tm1_connection,
   u2 <- tm1_adminhost
   u3 <- ":"
   u4 <- tm1_httpport
-  u5 <- "/api/v1/Cubes('"
-  u6 <- cube
-  u7 <- "')/tm1.Update"
+  u5 <- "/"
+  u6 <- "api/v1/Cubes('"
+  u7 <- cube
+  u8 <- "')/tm1.Update"
 
   # url development
-  url <- paste0(u1, u2, u3, u4, u5, u6, u7)
+  url <- ifelse(tm1_base_url=="", paste0(u1, u2, u3, u4, u5, u6, u7, u8), paste0(tm1_base_url, u6, u7, u8))
   #url = "https://localhost:8881/api/v1/Cubes('{{cubeName}}')/tm1.Update"
 
   # get dimensions of cube
