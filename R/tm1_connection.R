@@ -2,9 +2,20 @@ tm1_connection <- function(adminhost = "localhost", httpport = "",
                            username = "admin", password = "apple", namespace="", ssl=TRUE,
                            base_url = "") {
 
-  tm1_adminhost <- adminhost
-  tm1_httpport <- httpport
-  tm1_base_url <- gsub(" ", "%20", base_url, fixed=TRUE)
+  if (base_url == "") {
+    u1 <- ifelse(ssl==TRUE, "https://", "http://")
+    u2 <- adminhost
+    u3 <- ":"
+    u4 <- httpport
+    u5 <- "/"
+
+    tm1_base_url <- paste0(u1, u2, u3, u4, u5)
+  }
+  else
+  {
+    tm1_base_url <- gsub(" ", "%20", base_url, fixed=TRUE)
+  }
+
 
   if( namespace == "")
   {
@@ -23,7 +34,7 @@ tm1_connection <- function(adminhost = "localhost", httpport = "",
   httr::set_config(httr::config(ssl_verifyhost = FALSE))
 
 
-  tm1_connect_object <- list(adminhost=c(tm1_adminhost), port=c(tm1_httpport), key=c(tm1_auth_key), ssl=c(ssl), base_url=c(tm1_base_url))
+  tm1_connect_object <- list(base_url=c(tm1_base_url), key=c(tm1_auth_key))
 
   tm1_get_config(tm1_connect_object)
 

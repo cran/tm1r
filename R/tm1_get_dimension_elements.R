@@ -1,20 +1,11 @@
 tm1_get_dimension_elements <- function(tm1_connection, dimension) {
 
-  tm1_adminhost <- tm1_connection$adminhost
-  tm1_httpport <- tm1_connection$port
   tm1_auth_key <- tm1_connection$key
-  tm1_ssl <- tm1_connection$ssl
   tm1_base_url <- tm1_connection$base_url
 
   # added because some http does not know space
   dimension <- gsub(" ", "%20", dimension, fixed=TRUE)
 
-  u1 <- ifelse(tm1_ssl==TRUE, "https://", "http://")
-  #u1 <- "https://"
-  u2 <- tm1_adminhost
-  u3 <- ":"
-  u4 <- tm1_httpport
-  u5 <- "/"
   u6 <- "api/v1/Dimensions('"
   u7 <- dimension
   u8 <- "')/Hierarchies('"
@@ -22,7 +13,7 @@ tm1_get_dimension_elements <- function(tm1_connection, dimension) {
   u10 <- "')/Members?$select=Name&$expand=Element($select=Type)&$format=application/json;odata.metadata=none"
 
   # url development
-  url <- ifelse(tm1_base_url=="", paste0(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10), paste0(tm1_base_url, u6, u7, u8, u9, u10))
+  url <- paste0(tm1_base_url, u6, u7, u8, u9, u10)
   #url = "https://localhost:8881/api/v1/Dimensions('Account1')/Hierarchies('Account1')/Members?
   #$select=Name&$expand=Element($select=Type)&$format=application/json;odata.metadata=none"
 

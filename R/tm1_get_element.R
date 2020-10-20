@@ -1,21 +1,12 @@
 tm1_get_element <- function(tm1_connection, dimension, element = "", index = 0) {
 
-  tm1_adminhost <- tm1_connection$adminhost
-  tm1_httpport <- tm1_connection$port
   tm1_auth_key <- tm1_connection$key
-  tm1_ssl <- tm1_connection$ssl
   tm1_base_url <- tm1_connection$base_url
 
   # added because some http does not know space
   dimension <- gsub(" ", "%20", dimension, fixed=TRUE)
   element <- gsub(" ", "%20", element, fixed=TRUE)
 
-  u1 <- ifelse(tm1_ssl==TRUE, "https://", "http://")
-  #u1 <- "https://"
-  u2 <- tm1_adminhost
-  u3 <- ":"
-  u4 <- tm1_httpport
-  u5 <- "/"
   u6 <- "api/v1/Dimensions('"
   u7 <- dimension
   u8 <- "')/Hierarchies('"
@@ -45,7 +36,7 @@ tm1_get_element <- function(tm1_connection, dimension, element = "", index = 0) 
   }
 
   # url development
-  url <- ifelse(tm1_base_url=="", paste0(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13), paste0(tm1_base_url, u6, u7, u8, u9, u10, u11, u12, u13))
+  url <- paste0(tm1_base_url, u6, u7, u8, u9, u10, u11, u12, u13)
   #url = "https://localhost:8881/api/v1/Dimensions('month')/Hierarchies('month')/Elements('Year')?$expand=Components"
 
   # post request
@@ -54,7 +45,7 @@ tm1_get_element <- function(tm1_connection, dimension, element = "", index = 0) 
               httr::add_headers("Authorization" = tm1_auth_key))
 
   tm1_element_object <- list(name=c(NULL), uniquename=c(NULL), type=c(NULL),
-                             level=c(NULL), index=c(0), components=c(NULL))
+                             level=c(NULL), index=c(0), components=c(NULL), attributes=c(NULL))
 
   # check return if error
   if (is.null(jsonlite::fromJSON(httr::content(tm1_process_return, "text"))$error$message) == FALSE) {
@@ -76,6 +67,7 @@ tm1_get_element <- function(tm1_connection, dimension, element = "", index = 0) 
     tm1_element_object$level <- content$Level
     tm1_element_object$index <- content$Index
     tm1_element_object$components <- content$Components$Name
+    tm1_element_object$attributes <- content$Attributes
 
     return(tm1_element_object)
 

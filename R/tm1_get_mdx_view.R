@@ -1,23 +1,14 @@
 tm1_get_mdx_view <- function(tm1_connection, mdx="", RowElementAsColumn = FALSE) {
 
-  tm1_adminhost <- tm1_connection$adminhost
-  tm1_httpport <- tm1_connection$port
   tm1_auth_key <- tm1_connection$key
-  tm1_ssl <- tm1_connection$ssl
   tm1_base_url <- tm1_connection$base_url
 
   # url development
-  u1 <- ifelse(tm1_ssl==TRUE, "https://", "http://")
-  #u1 <- "https://"
-  u2 <- tm1_adminhost
-  u3 <- ":"
-  u4 <- tm1_httpport
-  u5 <- "/"
   u6 <- "api/v1/ExecuteMDX"
   u7 <- "?$expand=Axes($expand=Tuples($expand=Members($select=Name,UniqueName))),Cells($select=Value)"
 
 
-  url <- ifelse(tm1_base_url=="", paste0(u1, u2, u3, u4, u5, u6, u7), paste0(tm1_base_url, u6, u7))
+  url <- paste0(tm1_base_url, u6, u7)
   #url = "https://localhost:8881/api/v1/ExecuteMDX?
   #$expand=Axes($expand=Tuples($expand=Members($select=Name))),Cells($select=Value)"
 

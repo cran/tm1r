@@ -3,6 +3,7 @@
 \title{TM1 Send Data Set to a Cube}
 \usage{
 tm1_send_dataset(tm1_connection, valueset, cube, rowdim, coldim,
+                                rowdim2, rowdim3, rowdim4, rowdim5,
                                 titledim1, titleel1, titledim2, titleel2,
                                 titledim3, titleel3, titledim4, titleel4,
                                 titledim5, titleel5, titledim6, titleel6,
@@ -15,6 +16,10 @@ tm1_send_dataset(tm1_connection, valueset, cube, rowdim, coldim,
 \item{cube}{Name of a cube as a string}
 \item{rowdim}{Corresponding dimension of the elements on row}
 \item{coldim}{Corresponding dimension of the elements on column}
+\item{rowdim2}{Corresponding dimension of the elements on row2}
+\item{rowdim3}{Corresponding dimension of the elements on row3}
+\item{rowdim4}{Corresponding dimension of the elements on row4}
+\item{rowdim5}{Corresponding dimension of the elements on row5}
 
 \item{titledim1}{Name of dimension in title}
 \item{titleel1}{Element of dimension in corresponding titledim}

@@ -5,7 +5,7 @@ tm1r [![CRAN status](https://www.r-pkg.org/badges/version/tm1r)](https://cran.r-
 Overview
 --------
 
-Useful functions to connect to 'TM1' <https://www.ibm.com/uk-en/marketplace/planning-and-analytics> instance from R via REST API.  
+Useful functions to connect to 'TM1' <https://www.ibm.com/uk-en/products/planning-and-analytics> instance from R via REST API.  
 
 Installation
 ------------

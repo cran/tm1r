@@ -2,10 +2,7 @@ tm1_send_data <- function(tm1_connection,
                           value, cube, element1="", element2="", element3="", element4="", element5="",
                                 element6="", element7="", element8="", element9="", element10="", increment=FALSE) {
 
-  tm1_adminhost <- tm1_connection$adminhost
-  tm1_httpport <- tm1_connection$port
   tm1_auth_key <- tm1_connection$key
-  tm1_ssl <- tm1_connection$ssl
   tm1_base_url <- tm1_connection$base_url
 
   # if increment, change value
@@ -25,18 +22,12 @@ tm1_send_data <- function(tm1_connection,
   # added because some http does not know space
   cube <- gsub(" ", "%20", cube, fixed=TRUE)
 
-  u1 <- ifelse(tm1_ssl==TRUE, "https://", "http://")
-  #u1 <- "https://"
-  u2 <- tm1_adminhost
-  u3 <- ":"
-  u4 <- tm1_httpport
-  u5 <- "/"
   u6 <- "api/v1/Cubes('"
   u7 <- cube
   u8 <- "')/tm1.Update"
 
   # url development
-  url <- ifelse(tm1_base_url=="", paste0(u1, u2, u3, u4, u5, u6, u7, u8), paste0(tm1_base_url, u6, u7, u8))
+  url <- paste0(tm1_base_url, u6, u7, u8)
   #url = "https://localhost:8881/api/v1/Cubes('{{cubeName}}')/tm1.Update"
 
   # get dimensions of cube
