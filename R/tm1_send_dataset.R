@@ -52,7 +52,8 @@ tm1_send_dataset <- function(tm1_connection,
   mdxwherelist[7] <- ifelse(titledim7 != "", paste0("[", titledim7, "].[", titleel7, "]"), "")
   mdxwherelist[8] <- ifelse(titledim8 != "", paste0("[", titledim8, "].[", titleel8, "]"), "")
 
-  mdxwhere <- paste0(" WHERE (", paste(mdxwherelist[mdxwherelist != ""], collapse = ','), ")")
+  #mdxwhere <- paste0(" WHERE (", paste(mdxwherelist[mdxwherelist != ""], collapse = ','), ")")
+  mdxwhere <- ifelse( paste(mdxwherelist[mdxwherelist != ""], collapse = ',') == "", "", paste0(" WHERE (", paste(mdxwherelist[mdxwherelist != ""], collapse = ','), ")"))
 
 
   mdx <- paste0(mdxselect, mdxrows, mdxrowend, mdxcols, mdxcolend, mdxcube, mdxwhere)
@@ -109,7 +110,7 @@ tm1_send_dataset <- function(tm1_connection,
 
     for (j in 1:ncoln) {
 
-      ordinalvalues[ordinalnumber+1] <- paste0("{ \"Ordinal\": ", ordinalnumber, ", \"Value\": ", valueset[i,j], " }")
+      ordinalvalues[ordinalnumber+1] <- paste0("{ \"Ordinal\": ", ordinalnumber, ", \"Value\": \"", valueset[i,j], "\" }")
       ordinalnumber <- ordinalnumber + 1
     }
 
