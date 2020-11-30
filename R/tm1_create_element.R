@@ -54,11 +54,13 @@ tm1_create_element <- function(tm1_connection,
   ### now the element exist. connect it to the parent if it is not a component
 
   elementproper <- tm1_get_element(tm1_connection, dimension, element)$name
-  components <- tm1_get_element(tm1_connection, dimension, parent)$components
-  componentcheckresult <- subset(components, components == elementproper)
 
+  if (parent != "") {
 
-  if (parent != "" &&  length(componentcheckresult) == 0) {
+    components <- tm1_get_element(tm1_connection, dimension, parent)$components
+    componentcheckresult <- subset(components, components == elementproper)
+
+  if (length(componentcheckresult) == 0) {
 
     u6 <- "api/v1/Dimensions('"
     u7 <- dimension
@@ -96,6 +98,7 @@ tm1_create_element <- function(tm1_connection,
       stop()
     }
 
+  }
   }
 
 

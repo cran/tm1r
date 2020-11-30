@@ -1,8 +1,8 @@
-1f97370a8b60ba30dae8077d4d354f1e *DESCRIPTION
+be8cc28300da3762f4ecb5bf32b75489 *DESCRIPTION
 df390c53434517b304ac5db487184641 *NAMESPACE
 4519eafe18fe68917a4d2a31a23d5d7d *R/tm1_api_request.R
-b56d4d0a3a0bdc4694e97928d1902119 *R/tm1_connection.R
-e0d394513a76ed36a635615e49537e0a *R/tm1_create_element.R
+e95f1ffb6325afecfdf8450dc43fa015 *R/tm1_connection.R
+fc8201e456debcd948612b8b21a4a9ae *R/tm1_create_element.R
 cd686a4006f57797a0b94493acb56762 *R/tm1_create_mdx.R
 dfeb63aec2ce54faec3c28aa97d82ddc *R/tm1_create_subset.R
 eb210e58d5ba582c102c5f17db11c1c0 *R/tm1_create_view.R

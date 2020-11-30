@@ -33,10 +33,13 @@ tm1_connection <- function(adminhost = "localhost", httpport = "",
   httr::set_config(httr::config(ssl_verifypeer = FALSE))
   httr::set_config(httr::config(ssl_verifyhost = FALSE))
 
+  url <- paste0(tm1_base_url, "api/v1/Configuration")
+  tm1_process_return <-
+    httr::GET(url,
+              httr::add_headers("Authorization" = tm1_auth_key))
+  TM1SessionID <- tm1_process_return$cookies$value
 
-  tm1_connect_object <- list(base_url=c(tm1_base_url), key=c(tm1_auth_key))
-
-  tm1_get_config(tm1_connect_object)
+  tm1_connect_object <- list(base_url=c(tm1_base_url), key=c(tm1_auth_key), sessionid=c(TM1SessionID))
 
   return(tm1_connect_object)
 
