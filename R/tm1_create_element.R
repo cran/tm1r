@@ -2,7 +2,8 @@ tm1_create_element <- function(tm1_connection,
                             dimension,
                             element,
                             parent = "",
-                            weight = 1) {
+                            weight = 1,
+                            type = "Numeric") {
 
   tm1_auth_key <- tm1_connection$key
   tm1_base_url <- tm1_connection$base_url
@@ -27,11 +28,14 @@ tm1_create_element <- function(tm1_connection,
   url <- paste0(tm1_base_url, u6, u7, u8, u9, u10)
   #url = "https://localhost:8881/api/v1/Dimensions('month')/Hierarchies('month')/Elements"
 
-  elementbody1 <- "{    \"Name\": \""
+  elementbody1 <- "{ \"Name\": \""
   elementbody2 <- element
-  elementbody3 <-" \" }"
+  elementbody3 <-"\", "
+  elementbody4 <-" \"Type\": \""
+  elementbody5 <- type
+  elementbody6 <-"\" }"
 
-  elementbody <- paste0(elementbody1, elementbody2, elementbody3)
+  elementbody <- paste0(elementbody1, elementbody2, elementbody3, elementbody4, elementbody5, elementbody6)
 
   # post request
   tm1_process_return <-

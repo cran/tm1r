@@ -1,8 +1,8 @@
-be8cc28300da3762f4ecb5bf32b75489 *DESCRIPTION
+75d09d29ec6798da2a17410493f23157 *DESCRIPTION
 df390c53434517b304ac5db487184641 *NAMESPACE
 4519eafe18fe68917a4d2a31a23d5d7d *R/tm1_api_request.R
 e95f1ffb6325afecfdf8450dc43fa015 *R/tm1_connection.R
-fc8201e456debcd948612b8b21a4a9ae *R/tm1_create_element.R
+251d2a1ac33fcfdd7c71b33a989a1959 *R/tm1_create_element.R
 cd686a4006f57797a0b94493acb56762 *R/tm1_create_mdx.R
 dfeb63aec2ce54faec3c28aa97d82ddc *R/tm1_create_subset.R
 eb210e58d5ba582c102c5f17db11c1c0 *R/tm1_create_view.R
@@ -31,7 +31,7 @@ b71c8307bd2dafb38ec85ec59660b74d *R/tm1_send_data.R
 490e99b5d61b36f6e3a40c778bb2cf96 *README.md
 a028ffa3340b2954473c889c5a77db14 *man/tm1_api_request.Rd
 024155dae172a24d9c683c4074e61655 *man/tm1_connection.Rd
-e347bd883246286edcd25cb331db6c78 *man/tm1_create_element.Rd
+096b5bf146a15b2c30efb1705b6707e4 *man/tm1_create_element.Rd
 235abbedf55752e13a9502077ec2457b *man/tm1_create_mdx.Rd
 1f4fcfabfc65b954ff0f1838468c7e10 *man/tm1_create_subset.Rd
 c99755597b74244dfce6d5e4befaa108 *man/tm1_create_view.Rd

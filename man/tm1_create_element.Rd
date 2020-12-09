@@ -3,7 +3,7 @@
 \title{TM1 Create New Element to a Dimension}
 \usage{
 tm1_create_element(tm1_connection,
-  dimension, element, parent="", weight=1)
+  dimension, element, parent="", weight=1, type="Numeric")
 }
 \arguments{
 
@@ -12,6 +12,7 @@ tm1_create_element(tm1_connection,
 \item{element}{Name of new element}
 \item{parent}{Name of parent of new element. Leave bland if there is no parent.}
 \item{weight}{Weight of the element as a component to the parent. Default is 1}
+\item{type}{type of element; Numeric, String or Consolidated. Default is Numeric}
 
 }
 \description{
